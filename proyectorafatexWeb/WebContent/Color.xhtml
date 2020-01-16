@@ -19,6 +19,20 @@
 <p:growl>
 	<p:autoUpdate/>
 </p:growl>
+	<h:form>
+		<p:menubar>
+			<p:menuitem value="Inicio" action="index" icon="fa fa-home"></p:menuitem>
+			<p:menuitem value="Pedidos" action="pedidos" icon="fa fa-shopping-cart"></p:menuitem>
+			<p:menuitem value="Productos" action="Producto" icon="fa fa-bars"></p:menuitem>
+			<p:menuitem value="Agencia" action="Agencia" icon="fa fa-codepen"></p:menuitem>
+			<p:menuitem value="Empleados" action="Empleado" icon="fa fa-user-plus"></p:menuitem>
+			<p:menuitem value="Color" action="Color" icon="fa fa-pie-chart"></p:menuitem>
+			<f:facet name="options">
+				<p:commandButton value="Salir" action="#{beanLogin.salirSistema()}"
+					icon="fa fa-sign-out" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
 	<h:form id="form1">
 		
 		<p:messages>
@@ -58,7 +72,14 @@
 	priority="1">
 		<h:outputText value="#{color.nombre}" />
 	</p:column>
-	
+	<p:column headerText="OPCIONES">
+				<p:commandButton icon="fa fa-close"
+					action="#{beanColor.actionListenerEliminarColor(color.idColor)}" update="@form">
+				     	<p:confirm header="Confirmacion" message="Desea eliminar?" icon="fa fa-exclamation-triangle"></p:confirm>
+					</p:commandButton>
+				<p:commandButton icon="fa fa-edit"
+					action="#{beanColor.actionListenerSeleccionarColor(color)}" update="@form"  oncomplete="PF('dlgEdicion').show()"></p:commandButton>
+    </p:column>
 	
 		<p:commandButton icon="pi pi-times" title="eliminar" update="@form"
 		actionListener="#{beanColor.actionListenerEliminarColor(color.idColor)}" >
