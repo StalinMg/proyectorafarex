@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="proyectorafatexDS" transaction-type="JTA">
+		<jta-data-source>java:/rafatexDS</jta-data-source>
+		<class>proyectorafatex.model.entities.Agencia</class>
+		<class>proyectorafatex.model.entities.Cliente</class>
+		<class>proyectorafatex.model.entities.Color</class>
+		<class>proyectorafatex.model.entities.DetallePedido</class>
+		<class>proyectorafatex.model.entities.Empleado</class>
+		<class>proyectorafatex.model.entities.FacturaCab</class>
+		<class>proyectorafatex.model.entities.FacturaDet</class>
+		<class>proyectorafatex.model.entities.FormaPago</class>
+		<class>proyectorafatex.model.entities.Parametro</class>
+		<class>proyectorafatex.model.entities.Pedido</class>
+		<class>proyectorafatex.model.entities.Producto</class>
+		<class>proyectorafatex.model.entities.Rol</class>
+	</persistence-unit>
+</persistence>
