@@ -36,54 +36,31 @@ public class BeanProducto implements Serializable {
 	private Empleado empleado;
 	private Color color;
 	private Producto producto;
+	private BigDecimal cantidadExistente;
+	private Number idcolor;
+	private Number idempleado;
+	
 	
 	@PostConstruct
 	public void inicializar() {
 		listaproducto=managerProducto.findAllProductos();
 	}
 	
-	public String actionInsertarProducto(){
-		//Producto p= new Producto();
-	//	p.setIdProducto(idproducto);
-	//	p.setDescripcion(descripcion);
-		//p.setCantidadExistente(existencia);
-//		p.setNombre(nombre);
-	//	p.setPrecioUnitario(precioUnitario);
-	//	p.setPrecioPorMayor(precioMayor);
-	//	p.setRutaImagen(rutaImagen);
-	//	p.setTamanio(tamanio);
-	//	p.setEmpleado(empleado);
-	//	p.setColor(color);
+	
+	
+	public void actionInsertarProducto(){
 		try {
-			managerProducto.insertarProducto(producto);
+		managerProducto.insertarProducto(producto, idcolor,idempleado);
 			listaproducto=managerProducto.findAllProductos(); 
-			producto =  new Producto();
+			producto = new Producto();
 			JSFUtil.crearMensajeINFO("Producto Ingresado");
 		} catch (Exception e) {
 			JSFUtil.crearMensajeERROR(e.getMessage());
 			e.printStackTrace();
 		}
 		
-		
-		try {
-			managerProducto.insertarProducto(producto);
-			listaproducto=managerProducto.findAllProductos();
-			idproducto=0;
-			descripcion="";
-			existencia=null;
-			nombre="";
-			precioUnitario=null;
-			precioMayor=null;
-			tamanio="";
-			rutaImagen="";
-			color=null;
-		   
-		} catch (Exception e) {
-			JSFUtil.crearMensajeERROR(e.getMessage());
-			e.printStackTrace();
-		}
-		return "";
 	}
+	
 	
 	public String actionEliminarProducto(Producto producto){
 		try {
@@ -221,6 +198,38 @@ public class BeanProducto implements Serializable {
 
 	public void setColor(Color color) {
 		this.color = color;
+	}
+
+	public BigDecimal getCantidadExistente() {
+		return cantidadExistente;
+	}
+
+	public void setCantidadExistente(BigDecimal cantidadExistente) {
+		this.cantidadExistente = cantidadExistente;
+	}
+
+
+
+	public Number getIdcolor() {
+		return idcolor;
+	}
+
+
+
+	public void setIdcolor(Number idcolor) {
+		this.idcolor = idcolor;
+	}
+
+
+
+	public Number getIdempleado() {
+		return idempleado;
+	}
+
+
+
+	public void setIdempleado(Number idempleado) {
+		this.idempleado = idempleado;
 	}
 	
 

@@ -22,6 +22,7 @@ public class BeanEmpleado implements Serializable {
 	private Empleado empleado;
 	private boolean panelColapsado;
 	private Empleado empleadoSeleccionado;
+	private Number idempleado;
 	
 	@PostConstruct
 	public void inicializar() {
@@ -84,6 +85,12 @@ public class BeanEmpleado implements Serializable {
 	}
 	public void setEmpleadoSeleccionado(Empleado empleadoSeleccionado) {
 		this.empleadoSeleccionado = empleadoSeleccionado;
+	}
+	public Number getIdempleado() {
+		return idempleado;
+	}
+	public void setIdempleado(Number idempleado) {
+		this.idempleado = idempleado;
 	}
 	
 

@@ -1,5 +1,6 @@
 package proyectorafatex.model.manager;
 
+
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -8,8 +9,10 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
 import proyectorafatex.model.manager.ManagerDAO;
-import proyectorafatex.model.entities.Agencia;
+
 import proyectorafatex.model.entities.Producto;
+import proyectorafatex.model.entities.Color;
+import proyectorafatex.model.entities.Empleado;
 
 /**
  * Session Bean implementation class ManagerProducto
@@ -37,17 +40,16 @@ public class ManagerProducto {
   	}
   	
  
-  	public Producto findProductoById(Integer codigoProducto) throws Exception{
-  		return (Producto) managerDAO.findById(Producto.class, codigoProducto);
+  	public Producto findProductoById(Number codigoProducto) throws Exception{
+  		return  em.find(Producto.class, codigoProducto);
   	}
-  	
-  
-  	//public void insertarProducto(Producto p) throws Exception{
-  	//	managerDAO.insertar(p);
-  //	}
-    public void insertarProducto(Producto producto) throws Exception{
-    	if( findProductoById(producto.getIdProducto())!=null)
-    		throw new Exception("Esta agencia ya existe");
+ 
+   
+    public void insertarProducto(Producto producto, Number idcolor,Number idempleado) {
+    	Color color = (Color) em.find(Color.class, idcolor);    
+    	Empleado empleado=(Empleado)em.find(Empleado.class, idempleado);
+    	producto.setColor(color);
+    	producto.setEmpleado(empleado);
     	em.persist(producto);
     }
  

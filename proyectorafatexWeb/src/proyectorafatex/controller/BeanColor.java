@@ -24,6 +24,7 @@ public class BeanColor implements Serializable {
 	private Color color;
 	private boolean panelColapsado;
 	private Color colorSeleccionado;
+	private int idcolor;
 	
 	@PostConstruct
 	public void inicializar() {
@@ -91,6 +92,18 @@ public class BeanColor implements Serializable {
 
 	public void setPanelColapsado(boolean panelColapsado) {
 		this.panelColapsado = panelColapsado;
+	}
+
+	public int getIdcolor() {
+		return idcolor;
+	}
+
+	public void setIdcolor(int idcolor) {
+		this.idcolor = idcolor;
+	}
+
+	public void setListaColores(List<Color> listaColores) {
+		ListaColores = listaColores;
 	}
 
 	
